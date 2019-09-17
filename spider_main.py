@@ -50,6 +50,7 @@ class SpiderMain(object):
 
 if __name__ == "__main__":
 # url的入口
+    print "开始抓取数据"
     root_url = "https://baike.baidu.com/item/python/407313"
     obj_spider = SpiderMain()
 # 启动爬虫

@@ -1,9 +1,5 @@
 #-*- coding: UTF-8 -*-
-import urllib
-import sys
-
-reload(sys)
-sys.setdefaultencoding("utf-8")
+import urllib.parse
 # 将数据以html格式输出
 class HtmlOutputer(object):
     # 在构造函数中进行初始化
@@ -17,16 +13,15 @@ class HtmlOutputer(object):
     # 将收集好的数据写出到html文件中
     def output_html(self):
         # 创建一个文件的输出对象
-        fout = open('output.html','w')
+        fout = open('output.html','w',encoding='utf-8')
         fout.write("<html>")
-        fout.write("<head><meta charset='utf-8'></head>")
         fout.write("<body>")
         # 将数据输出为表格的格式
         fout.write("<table>")
         for data in self.datas:
             fout.write("<tr>")
             # urllib.parse.unquote可以将编码转化为中文
-            fout.write("<td>%s</td>" % urllib.unquote(data['url']))
+            fout.write("<td>%s</td>" % urllib.parse.unquote(data['url']))
             fout.write("<td>%s</td>" % data['title'])
             fout.write("<td>%s</td>" % data['summary'])
             fout.write("</tr>")

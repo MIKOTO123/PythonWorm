@@ -1,7 +1,7 @@
 #-*- coding: UTF-8 -*-
 import url_manager,html_downloader,html_parser,html_outputer
 import ssl
-import urllib
+import urllib.parse
 # 建议先看视频熟悉各模块的功能，自行百度之后在看本代码
 class SpiderMain(object):
     # 初始化各对象
@@ -27,7 +27,7 @@ class SpiderMain(object):
                 # 获取待爬取的url
                 new_url = self.urls.get_new_url()
                 # 输入第几个url
-                print ('craw %d : %s' % (count,urllib.unquote(new_url)))
+                print ('craw %d : %s' % (count,urllib.parse.unquote(new_url)))
                 # 启动下载器下载页面
                 html_cont = self.downloader.download(new_url)
                 print(html_cont)

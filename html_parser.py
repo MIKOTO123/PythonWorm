@@ -1,6 +1,6 @@
 ﻿from bs4 import BeautifulSoup
 import re
-from urlparse import urljoin
+from urllib.parse import urljoin
 
 # 创建html解析类，实现对html的解析
 class HtmlParse(object):
